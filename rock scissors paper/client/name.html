@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/ico" href="icon.ico" />
+    <title>Balls Senpai</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+        body {
+            background: #1F1F1F;
+            color: white;
+        }
+
+        h1 {
+            color: #ff5d73;
+            font-family: 'Roboto Mono', monospace;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #7c7a7a;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .content {
+            width: 75%;
+            max-width: 700px;
+        }
+
+        .center {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .description {
+            margin-top: 18.72px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .panel1 {
+            margin-top: 28.72px;
+            width: 100%;
+            display: flex;
+        }
+
+        .panel1 input[type=text] {
+            background: rgb(32, 32, 32);
+            border: rgb(63, 63, 63) solid 3px;
+            width: 50%;
+            margin: auto;
+            font-size: 25px;
+            padding: 5px;
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            outline: none;
+            transition: 0.5s border;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 50px rgb(32, 32, 32) inset;
+            /* Change the color to your own background color */
+            -webkit-text-fill-color: rgb(255, 255, 255);
+            font-size: 25px;
+        }
+
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 50px rgb(32, 32, 32) inset;
+            /*your box-shadow*/
+            -webkit-text-fill-color: rgb(255, 255, 255);
+            font-size: 25px;
+        }
+
+        .panel1 input[type=text]:focus {
+            border: 3px solid rgb(255, 255, 255);
+
+        }
+
+        .panel2 {
+            margin-top: 18.72px;
+            width: 100%;
+            display: flex;
+        }
+
+        .panel2 button {
+            height: 80px;
+            transition: all 0.25s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 30px;
+            font-weight: bold;
+            background: #333333;
+            color: #2c2c2c;
+            border: none;
+            width: 100%;
+            padding: 20px;
+            text-shadow:
+                -0.75px -0.75px 0 #fff,
+                0.75px -0.75px 0 #fff,
+                -0.75px 0.75px 0 #fff,
+                0.75px 0.75px 0 #fff,
+                5px 5px 0 rgb(32, 32, 32);
+        }
+
+        .panel2 button:disabled {
+            color: #292929;
+            background: #161616;
+            text-shadow: none;
+        }
+
+        .panel2 button:hover:not(:disabled) {
+            cursor: pointer;
+            background: #505050;
+            color: #23CFD2;
+            border: none;
+            padding: 20px;
+            font-size: 31px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="content">
+            <div class="title">
+                <h1>Enter nickname</h1>
+            </div>
+            <div class="description">
+                Please enter your nickname so that other organisms can identify who you are.
+            </div>
+            <div class="game">
+                <span class="panel1">
+                    <input spellcheck="false" type="text" name="username" id="nickname" onkeyup="onKeyUp()">
+                </span>
+                <span class="panel2">
+                    <button id="setNickname" onclick="onClick()">
+                        Set Nickname
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const setNickname = document.getElementById('setNickname');
+    setNickname.disabled = true;
+    const nickname = document.getElementById('nickname');
+    function onKeyUp() {
+        if (nickname.value.length > 2 && nickname.value.length < 21)
+            setNickname.disabled = false;
+        else
+            setNickname.disabled = true;
+    }
+
+    function onClick() {
+        window.location.href = `/game.html?nickname=${nickname.value}`;
+    }
+</script>
+
+</html>

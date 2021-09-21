@@ -1,0 +1,110 @@
+<html>
+
+<head>
+	<link rel="shortcut icon" type="image/ico" href="icon.ico" />
+	<title>Balls Senpai</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+		body {
+			background: #1F1F1F;
+			color: white;
+		}
+
+		h1 {
+			color: #ff5d73;
+			font-family: 'Roboto Mono', monospace;
+			margin-bottom: 0;
+		}
+
+		h3 {
+			margin-top: 0;
+			color: #7c7a7a;
+			font-family: 'Roboto Mono', monospace;
+		}
+
+		.content {
+			width: 75%;
+			max-width: 700px;
+		}
+
+		.center {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.description {
+			font-family: 'Roboto Mono', monospace;
+		}
+
+		.panel1 {
+			margin-top: 18.72px;
+			width: 100%;
+			display: flex;
+		}
+
+		.panel1 button {
+			height: 80px;
+			transition: all 0.25s;
+			font-family: 'Roboto Mono', monospace;
+			font-size: 30px;
+			font-weight: bold;
+			background: #333333;
+			color: #2e2e2e;
+			border: none;
+			width: 100%;
+			padding: 20px;
+			text-shadow:
+				-0.75px -0.75px 0 #fff,
+				0.75px -0.75px 0 #fff,
+				-0.75px 0.75px 0 #fff,
+				0.75px 0.75px 0 #fff,
+				5px 5px 0 rgb(32, 32, 32);
+		}
+
+		.panel1 button:hover {
+			cursor: pointer;
+			background: #505050;
+			color: #23CFD2;
+			border: none;
+			padding: 20px;
+			font-size: 31px;
+		}
+	</style>
+	<script>
+		function redirect() {
+			window.location.href = "/name.html";
+		}
+	</script>
+</head>
+
+<body>
+	<div class="center">
+		<div class="content">
+			<div class="title">
+				<h1>Scissors Rock Paper</h1>
+				<h3>by Dan and Vim with 🖤</h3>
+			</div>
+			<div class="description">
+				Hello <b>vermin</b>! Use your wits and teamwork (or individual strength, <i>
+					we don't judge)</i> to take down your opponent(s) in an epic battle only known as: Scissors Rock
+				Paper!
+				<span style="color:rgb(110, 110, 110)">(To
+					avoid copyright infringement)</span>
+			</div>
+			<div class="game">
+				<span class="panel1">
+					<button onclick="redirect()">
+						Begin
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

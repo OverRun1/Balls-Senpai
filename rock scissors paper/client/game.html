@@ -1,0 +1,870 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/ico" href="icon.ico" />
+    <title>Balls Senpai</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+        body {
+            background: #1F1F1F;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #ff5d73;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        h3 {
+            margin-bottom: 0;
+            color: #7c7a7a;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        h4 {
+            margin-top: 0;
+            color: #555555;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .content {
+            width: 75%;
+        }
+
+        .center {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .description {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .panel1 {
+            margin-top: 18.72px;
+            width: 100%;
+            display: flex;
+        }
+
+        .panel1 button:first-child {
+            margin-right: 10px;
+        }
+
+        .panel1 button {
+            height: 80px;
+            transition: all 0.25s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 30px;
+            font-weight: bold;
+            background: #333333;
+            color: #FF344F;
+            border: none;
+            width: 50%;
+            padding: 20px;
+            text-shadow:
+                -0.75px -0.75px 0 #fff,
+                0.75px -0.75px 0 #fff,
+                -0.75px 0.75px 0 #fff,
+                0.75px 0.75px 0 #fff,
+                5px 5px 0 rgb(32, 32, 32);
+        }
+
+        .panel1 button:hover:not(:disabled) {
+            background: #505050;
+            font-size: 31px;
+        }
+
+        .panel1 button:disabled {
+            color: #292929;
+            background: #161616;
+            text-shadow: none;
+        }
+
+        .panel2 {
+            margin-top: 10px;
+            width: 100%;
+            background: #141414;
+        }
+
+        .panel2 .player {
+            font-family: 'Roboto Mono', monospace;
+            border-style: solid;
+            border-color: #333333;
+            border-width: 1px 2px 1px 2px;
+            padding: 20px;
+        }
+
+        .panel2 .player:first-child {
+            font-family: 'Roboto Mono', monospace;
+            border-style: solid;
+            border-width: 2px 2px 1px 2px;
+            padding: 20px;
+        }
+
+        .panel2 .player:last-child {
+            font-family: 'Roboto Mono', monospace;
+            border-style: solid;
+            border-width: 1px 2px 2px 2px;
+            padding: 20px;
+        }
+
+        .panel3 {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+        }
+
+        .panel3 button {
+            height: 80px;
+            transition: all 0.25s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 30px;
+            font-weight: bold;
+            background: #333333;
+            color: #2e2e2e;
+            border: none;
+            width: 100%;
+            padding: 20px;
+            text-shadow:
+                -0.75px -0.75px 0 #fff,
+                0.75px -0.75px 0 #fff,
+                -0.75px 0.75px 0 #fff,
+                0.75px 0.75px 0 #fff,
+                5px 5px 0 rgb(32, 32, 32);
+        }
+
+        .panel3 button:hover:not(:disabled) {
+            background: #505050;
+            color: #23CFD2;
+            border: none;
+            padding: 20px;
+            font-size: 31px;
+        }
+
+        .panel3 button:disabled {
+            color: #292929;
+            background: #161616;
+            text-shadow: none;
+        }
+
+        .panel4 {
+            margin-top: 18.72px;
+            width: 100%;
+            display: flex;
+        }
+
+        .panel4 button:first-child {
+            margin-right: 10px;
+        }
+
+        .panel4 button:last-child {
+            margin-left: 10px;
+        }
+
+        .panel4 button {
+            height: 80px;
+            transition: all 0.25s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 30px;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            background: #333333;
+            border: none;
+            width: 33%;
+            text-shadow:
+                -0.75px -0.75px 0 #fff,
+                0.75px -0.75px 0 #fff,
+                -0.75px 0.75px 0 #fff,
+                0.75px 0.75px 0 #fff,
+                5px 5px 0 rgb(32, 32, 32);
+        }
+
+        .panel4 button:hover:not(:disabled) {
+            background: #505050;
+            font-size: 31px;
+        }
+
+        .panel4 button:disabled {
+            color: #292929;
+            background: #161616;
+            text-shadow: none;
+        }
+
+        .selected {
+            background: #00FF00 !important;
+        }
+
+        #muda {
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        #game {
+            max-width: 1000px;
+        }
+
+        #teams {
+            font-family: 'Roboto Mono', monospace;
+            background: #333333;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 28.72px;
+        }
+
+        #teams tr:first-child {
+            background: #222222;
+        }
+
+        #teams th {
+            width: 50%;
+        }
+
+        #chika {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            filter: brightness(0.2);
+        }
+
+        #volumeSlider {
+            float: right;
+            margin-right: 12.5%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            margin-top: 100px;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        #losePopUp .modal-header {
+            padding: 2px 16px;
+            background-color: #b10606;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+            color: rgb(0, 0, 0);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .snowflake img {
+            width: 50px;
+        }
+
+        @-webkit-keyframes snowflakes-fall {
+            0% {
+                top: -10%
+            }
+
+            100% {
+                top: 100%
+            }
+        }
+
+        @-webkit-keyframes snowflakes-shake {
+            0% {
+                -webkit-transform: translateX(0px);
+                transform: translateX(0px)
+            }
+
+            50% {
+                -webkit-transform: translateX(80px);
+                transform: translateX(80px)
+            }
+
+            100% {
+                -webkit-transform: translateX(0px);
+                transform: translateX(0px)
+            }
+        }
+
+        @keyframes snowflakes-fall {
+            0% {
+                top: -10%
+            }
+
+            100% {
+                top: 100%
+            }
+        }
+
+        @keyframes snowflakes-shake {
+            0% {
+                transform: translateX(0px)
+            }
+
+            50% {
+                transform: translateX(80px)
+            }
+
+            100% {
+                transform: translateX(0px)
+            }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+            -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+            -webkit-animation-duration: 10s, 3s;
+            -webkit-animation-timing-function: linear, ease-in-out;
+            -webkit-animation-iteration-count: infinite, infinite;
+            -webkit-animation-play-state: running, running;
+            animation-name: snowflakes-fall, snowflakes-shake;
+            animation-duration: 10s, 3s;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+            animation-play-state: running, running
+        }
+
+        .snowflake:nth-of-type(0) {
+            left: 1%;
+            -webkit-animation-delay: 0s, 0s;
+            animation-delay: 0s, 0s
+        }
+
+        .snowflake:nth-of-type(1) {
+            left: 10%;
+            -webkit-animation-delay: 1s, 1s;
+            animation-delay: 1s, 1s
+        }
+
+        .snowflake:nth-of-type(2) {
+            left: 20%;
+            -webkit-animation-delay: 6s, .5s;
+            animation-delay: 6s, .5s
+        }
+
+        .snowflake:nth-of-type(3) {
+            left: 30%;
+            -webkit-animation-delay: 4s, 2s;
+            animation-delay: 4s, 2s
+        }
+
+        .snowflake:nth-of-type(4) {
+            left: 40%;
+            -webkit-animation-delay: 2s, 2s;
+            animation-delay: 2s, 2s
+        }
+
+        .snowflake:nth-of-type(5) {
+            left: 50%;
+            -webkit-animation-delay: 8s, 3s;
+            animation-delay: 8s, 3s
+        }
+
+        .snowflake:nth-of-type(6) {
+            left: 60%;
+            -webkit-animation-delay: 6s, 2s;
+            animation-delay: 6s, 2s
+        }
+
+        .snowflake:nth-of-type(7) {
+            left: 70%;
+            -webkit-animation-delay: 2.5s, 1s;
+            animation-delay: 2.5s, 1s
+        }
+
+        .snowflake:nth-of-type(8) {
+            left: 80%;
+            -webkit-animation-delay: 1s, 0s;
+            animation-delay: 1s, 0s
+        }
+
+        .snowflake:nth-of-type(9) {
+            left: 90%;
+            -webkit-animation-delay: 3s, 1.5s;
+            animation-delay: 3s, 1.5s
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="snowflakes" aria-hidden="true" id="snowflakes"></div>
+    <div id="winPopUp" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="window.location.replace(window.location.href)">&times;</span>
+                <h2>Guess What!</h2>
+            </div>
+            <div class="modal-body">
+                <p>GG My Little PogChamp</p>
+            </div>
+        </div>
+    </div>
+    <div id="losePopUp" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="window.location.replace(window.location.href)">&times;</span>
+                <h2>Guess What!</h2>
+            </div>
+            <div class="modal-body">
+                <p>HAH GET REKT NOOB! IMAGINE LOSING!</p>
+            </div>
+        </div>
+    </div>
+    <input type="range" min="1" max="100" value="10" id="volumeSlider" onchange="updateVolume()">
+    <video autoplay loop id="chika">
+        <source src="chika_dance.mp4" type="video/mp4">
+    </video>
+    <div class="center">
+        <div id="startMenu" class="content">
+            <div class="title">
+                <h3>Hello,</h3>
+                <h1 id="title"></h1>
+                <h4>Status: <span id="status" style="color: rgb(122, 122, 122);">Connecting...</span></h4>
+            </div>
+            <div class="description">
+                <b>Ahahahaha puny mortal!</b> Its time to D-D-D-D Duel! If you would like to host your own realm and
+                invite
+                your
+                companions copy the code on the left and send it to them. If you would like to join a lobby click
+                the button on the right and enter the realm code. You may enter a code from your acquaintance here and
+                join
+                their lobby as well. If you are playing with multiple people then the majority vote goes. If your vote
+                is seperate from the majority vote, your opinion does not matter. Teams will be selected at random.
+            </div>
+            <div class="game">
+                <span class="panel1">
+                    <button id="copyCode" onclick="copy()">
+                        Copy Code
+                    </button>
+                    <button id="joinRoom" onclick="join()">
+                        Join Room
+                    </button>
+                </span>
+                <div id="players" class="panel2">
+                    <div id="user" class="player"></div>
+                    <div id="hint" class="player" style="color: #5f5f5f">
+                        Send the code to other players if you don't want to be lonely, nerd!
+                    </div>
+                </div>
+                <span class="panel3">
+                    <button id="startGame" onclick="start()">
+                        Start Game
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div id="game" class="content">
+            <table id="teams">
+                <tr>
+                    <th>Team Dio</th>
+                    <th>Team Jotaro</th>
+                </tr>
+            </table>
+            <img id="muda" src="muda.jpg" alt="mudamudamuda">
+            <span class="panel4">
+                <button id="scissor" onclick="vote('scissor')">
+                    <img src="scissors.png" alt="scissors">
+                </button>
+                <button id="paper" onclick="vote('paper')">
+                    <img src="paper.png" alt="paper">
+                </button>
+                <button id="rock" onclick="vote('rock')">
+                    <img src="rock.png" alt="rock">
+                </button>
+            </span>
+
+        </div>
+    </div>
+</body>
+<script>
+    const status = document.getElementById('status');
+    let isConnecting = true;
+    let statusIdx = 0;
+    const connectingAnimation = setInterval(() => {
+        if (isConnecting) {
+            statusIdx = statusIdx % 4;
+            status.innerText = `Connecting${['', '.', '..', '...'][statusIdx]}`
+            statusIdx++;
+        }
+    }, 400);
+
+    const hint = document.getElementById('hint');
+    const startPage = document.getElementById('startMenu');
+    const gamePage = document.getElementById('game');
+    const players = document.getElementById('players');
+    const copyCode = document.getElementById('copyCode');
+    const joinRoom = document.getElementById('joinRoom');
+    const startGame = document.getElementById('startGame');
+    const rock = document.getElementById('rock');
+    const paper = document.getElementById('paper');
+    const scissor = document.getElementById('scissor');
+    const teams = document.getElementById('teams');
+    const video = document.getElementById('chika');
+    const slider = document.getElementById('volumeSlider');
+    copyCode.disabled = true;
+    joinRoom.disabled = true;
+    startGame.disabled = true;
+    gamePage.hidden = true;
+    startPage.hidden = false;
+    video.volume = 0.1;
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const nickname = params.nickname;
+    if (nickname === undefined || nickname.length < 3 || nickname.length > 20) {
+        alert("Nickname either invalid or missing");
+        window.location.href = '/name.html';
+    } else { run() }
+
+    let id = '';
+    let roomID = '';
+    let sendJoinRoomRequest;
+    let sendStartGameRequest;
+    let sendVote;
+    let roomCode;
+    let voted = [];
+    let playerIDs = [];
+    let team1 = [];
+    let team2 = [];
+
+    function updateVolume() {
+        video.volume = slider.value / 100;
+    }
+
+    function copy() {
+        let data = [new ClipboardItem({ "text/plain": new Blob([roomID], { type: "text/plain" }) })];
+        navigator.clipboard.write(data).then(() => {
+            console.log("Copied to clipboard successfully!");
+        }, () => {
+            console.error("Unable to write to clipboard. :-(");
+            alert(`Failed to copy code: ${roomID}`);
+        });
+    }
+
+    async function join() {
+        while (true) {
+            roomCode = prompt("Enter Room Code");
+            if (roomCode === null) {
+                break;
+            }
+            else if (roomCode === roomID) {
+                alert("You tried to join your own room, how lonely");
+            }
+            else if (roomCode.length !== 4) {
+                alert("You didn't enter a proper code noob");
+            } else {
+                const result = await sendJoinRoomRequest(roomCode);
+                if (result === "success") {
+                    break;
+                } else if (result === "invalid_room_number") {
+                    alert("Whose room you tryna join huh?");
+                } else if (result === "game_already_started") {
+                    alert("Ha! They started playing without you!");
+                }
+            }
+        }
+    }
+
+    async function start() {
+        const result = await sendStartGameRequest();
+        if (result !== 'success') {
+            alert("NANI?!?!");
+        }
+    }
+
+    async function vote(choice) {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissor.disabled = true;
+        switch (choice) {
+            case 'rock':
+                rock.className = "selected";
+                break;
+            case 'paper':
+                paper.className = "selected";
+                break;
+            case 'scissor':
+                scissor.className = "selected";
+                break;
+            default:
+                alert("Get good noob...");
+                return;
+        }
+        sendVote(choice);
+        const entry = document.getElementById(id);
+        entry.style.backgroundColor = '#00ff00';
+    }
+
+    function run() {
+        const title = document.getElementById('title');
+        title.innerText = `${nickname}!`;
+        const user = document.getElementById('user');
+        user.innerText = nickname;
+
+        const socket = new WebSocket('ws://localhost:8765');
+        let msgCount = 0;
+        let joined = false;
+        let startedGame = false;
+        let failedToJoin = '';
+        let failedToStartGame = '';
+
+        socket.addEventListener('close', function (event) {
+            alert("Failed to connect to server");
+            window.location.href = '/index.html';
+        });
+
+        socket.addEventListener('open', function (event) {
+            console.log("Connected to the server");
+            clearInterval(connectingAnimation);
+            status.innerText = 'Connected';
+            status.style.color = "#00CA43";
+            socket.send(`nickname ${nickname}`);
+        });
+
+        socket.addEventListener('message', function (event) {
+            const data = event.data.toString();
+            console.log('Message from server ', data);
+            if (data.startsWith('error')) {
+                msg = data.slice(6);
+                // alert(`An error has occurred - Debug info: ${msg}`);
+                failedToStartGame = 'failed';
+                switch (msg) {
+                    case 'invalid_room_number': {
+                        failedToJoin = 'invalid_room_number';
+                        break;
+                    }
+                    case 'game_already_started': {
+                        failedToJoin = 'game_already_started';
+                        break;
+                    }
+                }
+            } else if (msgCount === 0) {
+                if (data.startsWith('id ')) {
+                    id = data.slice(3);
+                } else {
+                    alert(`An error has occurred (server sent unexpected message) - Debug info: ${event.data}`)
+                }
+            } else if (msgCount === 1) {
+                if (data.startsWith('roomID ')) {
+                    roomID = data.slice(7);
+                    copyCode.disabled = false;
+                    joinRoom.disabled = false;
+                    failedToJoin = '';
+                    playerIDs.push({ id, username: nickname });
+                    sendJoinRoomRequest = (code) => {
+                        return new Promise(resolve => {
+                            socket.send(`join_room ${code}`);
+                            const interval = setInterval(() => {
+                                if (joined) {
+                                    resolve("success");
+                                    clearInterval(interval);
+                                } else if (failedToJoin !== '') {
+                                    resolve(failedToJoin);
+                                    clearInterval(interval);
+                                }
+                            }, 100);
+                        });
+                    };
+                    sendStartGameRequest = () => {
+                        return new Promise(resolve => {
+                            socket.send(`start_game`);
+                            const interval = setInterval(() => {
+                                if (startedGame) {
+                                    resolve('success');
+                                    clearInterval(interval);
+                                } else if (failedToStart !== '') {
+                                    resolve(failedToStart);
+                                    clearInterval(interval);
+                                }
+                            }, 100);
+                        });
+                    };
+                    sendVote = (choice) => socket.send(`vote ${choice}`);
+                } else {
+                    alert(`An error has occurred (server sent unexpected message) - Debug info: ${event.data}`)
+                }
+            } else if (data === 'success successfully_joined') {
+                joined = true;
+            } else if (data.startsWith('in_party ')) {
+                joinRoom.disabled = true;
+                roomID = roomCode;
+                const info = data.slice(9).split(' ');
+                if (info.length !== 2) {
+                    alert(`An error has occurred (server sent unexpected message) - Debug info: ${event.data}`)
+                    return;
+                }
+                const player = { id: info[0], username: info[1] };
+                playerIDs.push(player);
+                // <div id="user" class="player"></div>
+                const entry = document.createElement("div");
+                entry.className = "player";
+                entry.textContent = player.username;
+                hint.before(entry);
+            } else if (data.startsWith('player_joined ')) {
+                joinRoom.disabled = true;
+                roomID = roomCode;
+                const info = data.slice(14).split(' ');
+                if (info.length !== 2) {
+                    alert(`An error has occurred (server sent unexpected message) - Debug info: ${event.data}`)
+                    return;
+                }
+                const player = { id: info[0], username: info[1] };
+                playerIDs.push(player);
+                // <div id="user" class="player"></div>
+                const entry = document.createElement("div");
+                entry.className = "player";
+                entry.textContent = player.username;
+                hint.before(entry);
+                startGame.disabled = false;
+            } else if (data.startsWith('game_started ')) {
+                startedGame = true;
+                startPage.hidden = true;
+                gamePage.hidden = false;
+                /*
+                    <div class="snowflake">
+                        <img src="fallingmuda.png">
+                    </div>
+                */
+                {
+                    let inner = "";
+                    let count = 10;
+                    for (let i = 0; i < count; i++) {
+                        inner += `
+                        <div class="snowflake">
+                            <img src="fallingmuda.png">
+                        </div>
+                        `;
+                    }
+                    document.getElementById('snowflakes').innerHTML = inner;
+                }
+                video.remove();
+                slider.remove();
+                const info = data.slice(13).split(' ');
+                if (info.length !== 2) {
+                    alert(`An error has occurred (server sent unexpected message) - Debug info: ${event.data}`)
+                    return;
+                }
+                const entry = { team: info[0], id: info[1] };
+                /*
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                </tr>
+                */
+                document.getElementsByTagName('#teams')
+                if (entry.team === "team1") team1.push(entry.id);
+                else team2.push(entry.id);
+                let largeTeam = team1;
+                let smallTeam = team2;
+                if (team2.length > team1.length) {
+                    largeTeam = team2;
+                    smallTeam = team1;
+                }
+                function findUsername(id) {
+                    const result = playerIDs.find(x => x.id === id);
+                    if (result !== undefined) return result.username;
+                    return '';
+                }
+                teams.innerHTML = `
+                <tr>
+                    <th>Team Dio</th>
+                    <th>Team Jotaro</th>
+                </tr>
+                `;
+                for (const [idx, memberID] of largeTeam.entries()) {
+                    const entry = [findUsername(memberID), findUsername(smallTeam[idx])];
+                    const htmlEntry = document.createElement('tr');
+                    const td1 = document.createElement('td');
+                    td1.innerText = entry[0];
+                    td1.id = memberID;
+                    const td2 = document.createElement('td');
+                    td2.innerText = entry[1];
+                    td2.id = smallTeam[idx];
+                    htmlEntry.appendChild(td1);
+                    htmlEntry.appendChild(td2);
+                    teams.appendChild(htmlEntry);
+                }
+            } else if (data.startsWith('user_voted ')) {
+                const entry = document.getElementById(data.slice(11));
+                entry.style.backgroundColor = '#00ff00';
+            } else if (data.startsWith('game_over ')) {
+                const winner = data.slice(10);
+                const isTeam1 = team1.find(x => x === id);
+                if ((isTeam1 && winner === "team1") || (!isTeam1 && winner === "team2")) {
+                    document.getElementById('winPopUp').style.display = "block";
+                } else {
+                    document.getElementById('losePopUp').style.display = "block";
+                }
+            }
+
+            msgCount++;
+        });
+    }
+</script>
+
+</html>

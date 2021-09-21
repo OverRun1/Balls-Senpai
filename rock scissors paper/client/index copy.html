@@ -1,0 +1,188 @@
+<html>
+
+<head>
+	<link rel="shortcut icon" type="image/ico" href="icon.ico" />
+	<title>Balls Senpai</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+		body {
+			background: #1F1F1F;
+			color: white;
+		}
+
+		h1 {
+			color: #ff5d73;
+			font-family: 'Roboto Mono', monospace;
+			margin-bottom: 0;
+		}
+
+		h3 {
+			margin-top: 0;
+			color: #7c7a7a;
+			font-family: 'Roboto Mono', monospace;
+		}
+
+		.content {
+			width: 75%;
+		}
+
+		.center {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.description {
+			font-family: 'Roboto Mono', monospace;
+		}
+
+		.panel1 {
+			margin-top: 18.72px;
+			width: 100%;
+			display: flex;
+		}
+
+		.panel1 button:first-child {
+			margin-right: 10px;
+		}
+
+		.panel1 button {
+			height: 80px;
+			transition: all 0.25s;
+			font-family: 'Roboto Mono', monospace;
+			font-size: 30px;
+			font-weight: bold;
+			background: #333333;
+			color: #FF344F;
+			border: none;
+			width: 50%;
+			padding: 20px;
+			text-shadow:
+				-0.75px -0.75px 0 #fff,
+				0.75px -0.75px 0 #fff,
+				-0.75px 0.75px 0 #fff,
+				0.75px 0.75px 0 #fff,
+				5px 5px 0 rgb(32, 32, 32);
+		}
+
+		.panel1 button:hover {
+			background: #505050;
+			font-size: 31px;
+		}
+
+		.panel2 {
+			margin-top: 10px;
+			width: 100%;
+			background: #141414;
+		}
+
+		.panel2 .player {
+			font-family: 'Roboto Mono', monospace;
+			border-style: solid;
+			border-color: #333333;
+			border-width: 2px 2px 2px 2px;
+			padding: 20px;
+		}
+
+		.panel2 .player:first-child {
+			font-family: 'Roboto Mono', monospace;
+			border-style: solid;
+			border-width: 2px 2px 0px 2px;
+			padding: 20px;
+		}
+
+		.panel3 {
+			margin-top: 10px;
+			width: 100%;
+			display: flex;
+		}
+
+		.panel3 button {
+			height: 80px;
+			transition: all 0.25s;
+			font-family: 'Roboto Mono', monospace;
+			font-size: 30px;
+			font-weight: bold;
+			background: #333333;
+			color: #23CFD2;
+			border: none;
+			width: 100%;
+			padding: 20px;
+			text-shadow:
+				-0.75px -0.75px 0 #fff,
+				0.75px -0.75px 0 #fff,
+				-0.75px 0.75px 0 #fff,
+				0.75px 0.75px 0 #fff,
+				5px 5px 0 rgb(32, 32, 32);
+		}
+
+		.panel3 button:hover {
+			background: #505050;
+			color: #23CFD2;
+			border: none;
+			padding: 20px;
+			font-size: 31px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="center">
+		<div class="content">
+			<div class="title">
+				<h1>Rock Paper Scissors</h1>
+				<h3>by Dan and Vim with 🖤</h3>
+			</div>
+			<div class="description">
+				Hello puny mortals! Its time to D-D-D-D Duel! If you would like to host your own realm and invite your
+				companions copy the code on the left and send it to them. If you would like to join a lobby click
+				the button on the right and enter the realm code. You may enter a code from your acquaintance here and
+				join
+				their lobby as well.
+			</div>
+			<div class="game">
+				<span class="panel1">
+					<button>
+						Copy Code
+					</button>
+					<button>
+						Join Room
+					</button>
+				</span>
+				<div class="panel2">
+					<div class="player">
+						VimHax
+					</div>
+					<div class="player">
+						OverRun
+					</div>
+				</div>
+				<span class="panel3">
+					<button>
+						Start Game
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	// Create WebSocket connection.
+	const socket = new WebSocket('ws://localhost:8765');
+
+	// Connection opened
+	socket.addEventListener('open', function (event) {
+		socket.send('Hello Server!');
+	});
+
+	// Listen for messages
+	socket.addEventListener('message', function (event) {
+		console.log('Message from server ', event.data);
+	});
+</script>
+
+</html>
